@@ -143,11 +143,11 @@ define("API_KEY","AIzaSyDgS2pbNfDwDRy1nM3VNIiMBGmcLa-H0EY") ?>
 		var lng = place.geometry.location.lng();
 		var myLatLng = {lat: lat, lng: lng};
 		
-		console.log(place);
+		//console.log(place);
 		//console.log(place.name);
 		console.log(place.formatted_address);
 		//console.log(place.name);
-		console.log(lat + ' ' + lng);
+		//console.log(lat + ' ' + lng);
 		var contentString = 'Address: ' + place.formatted_address;
 		 
 		var map = new google.maps.Map(document.getElementById('map'), {
