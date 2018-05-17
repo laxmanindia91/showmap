@@ -2,6 +2,7 @@
 <html>
 
   <head>
+  <title>Show world map highlight with mouse hover</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
