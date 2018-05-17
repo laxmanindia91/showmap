@@ -35,7 +35,7 @@
   </head>
   <body onload="drop()">
     <div id="floating-panel">
-      <button id="drop" onclick="drop()">Drop Markers</button>
+      <button id="drop" onclick="drop()">Drop Markers on google map</button>
     </div>
     <div id="map"></div>
     <script>
