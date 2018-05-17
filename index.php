@@ -145,7 +145,7 @@ define("API_KEY","AIzaSyDgS2pbNfDwDRy1nM3VNIiMBGmcLa-H0EY") ?>
 		
 		//console.log(place);
 		//console.log(place.name);
-		console.log(place.formatted_address);
+		//console.log(place.formatted_address);
 		//console.log(place.name);
 		//console.log(lat + ' ' + lng);
 		var contentString = 'Address: ' + place.formatted_address;
