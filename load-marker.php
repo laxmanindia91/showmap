@@ -32,6 +32,7 @@
         margin-left: -52px;
       }
     </style>
+	<script type="text/javascript" src="mapdata.js"></script>
   </head>
   <body onload="drop()">
     <div id="floating-panel">
@@ -39,6 +40,16 @@
     </div>
     <div id="map"></div>
     <script>
+	
+	var obj = simplemaps_worldmap_mapdata["regions"];
+
+	for (var region in obj) {
+			for (var i=0; i<obj[region].states.length;i++) {
+
+				//array_state.push(obj[region].states[i]);
+		}
+		//array_region.push(obj[region].name,array_state);
+	}
 
       // If you're adding a number of markers, you may want to drop them on the map
       // consecutively rather than all at once. This example shows how to use
@@ -46,9 +57,9 @@
 
       var neighborhoods = [
         {lat: 52.511, lng: 13.447},
-        {lat: 52.549, lng: 13.422},
-        {lat: 52.497, lng: 13.396},
-        {lat: 52.517, lng: 13.394}
+        {lat: 58.549, lng: 12.422},
+        {lat: 53.497, lng: 14.396},
+        {lat: 54.517, lng: 15.394}
       ];
 
       var markers = [];
@@ -56,7 +67,7 @@
 
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 13,
+          zoom: 7,
           center: {lat: 52.520, lng: 13.410}
         });
       }
