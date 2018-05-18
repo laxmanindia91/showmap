@@ -24,7 +24,6 @@
        data.addColumn({type:'string', role:'tooltip'});var ivalue = new Array();
       
        var options = {
-       backgroundColor: {fill:'#FFFFFF',stroke:'#FFFFFF' ,strokeWidth:25 },
        colorAxis:  {minValue: 0, maxValue: 0,  colors: []},
        legend: 'none',    
        backgroundColor: {fill:'#FFFFFF',stroke:'#FFFFFF' ,strokeWidth:25 },   
