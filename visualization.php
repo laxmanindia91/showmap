@@ -26,7 +26,6 @@
 		['Region Code', 'Continent'],
 		['142', 'Middle East and India'],
 		['150', 'Europe'],
-		['141', 'test1'],
 		['019', 'Americas'],
 		['009', 'Asia Pacific'],
 		['002', 'Africa'],
@@ -58,19 +57,16 @@
 					region: 'world', // e.g. IN , AU, RU
 					//displayMode: 'text',
 					//'dataMode' : 'regions',	//'markers';
-					//'colors' : '#f8bbd0',
+					'colors' : '#f8bbd0',
 					//'showLegend' : 'true',
-					//colorAxis: {colors: ['#00853f', 'black', '#e31b23']},
+					
 					//backgroundColor: '#FFFFFF', //'#d9e8f5',
-					//datalessRegionColor: '#054073',	//'#f8bbd0',
-					//defaultColor: '#f5f5f5',
+					
+					defaultColor: '#f5f5f5',
 					//'dataMode': 'marker',
 					//backgroundColor: {fill:'#FFFFFF',stroke:'#FFFFFF' ,strokeWidth:25 },
-					datalessRegionColor: '#372861',	//'#f8bbd0',
-					//colorAxis: {colors: ['#6E90CF', '#3B729F']}
 					//backgroundColor: '#FFFFFF', //'#d9e8f5',
-					//backgroundColor: {fill:'#FFFFFF',stroke:'#FFFFFF' ,strokeWidth:25 },
-					//datalessRegionColor: '#372861',	//'#f8bbd0',
+					//datalessRegionColor: '#d9e8f5',	//'#f8bbd0',
 					//colorAxis: {colors: ['#6E90CF', '#3B729F']},
 					resolution: 'continents'
 					};
@@ -80,7 +76,7 @@
 		console.log(data);
         geomap.draw(data, options);
 		
-		google.visualization.events.addListener( 
+		/*google.visualization.events.addListener( 
 		geomap, 'regionClick', regionClickHandler); 
 
       function regionClickHandler(e) { 
@@ -97,8 +93,35 @@
         //location.href = "?region=" + country_data; 
 
         geomap.setSelection(); 
-      }
+      }*/
+	  
+	  // We add a DOM event here to show an alert if the DIV containing the
+        // map is clicked.
+        google.maps.event.addDomListener(container, 'click', function() {
+		  var selection = geomap.getSelection();
+		if (selection.length) {
+			var country_data = data.getValue(selection[0].row, 1);
+			//alert(country_data);
+			console.log(country_data);
+			location.href = "?region=" + country_data;
+		}
+		
+        });	// click event
+		
+		google.maps.event.addDomListener(container, 'mouseover', function() {
+			  		  var selection = geomap.getSelection();
+		if (selection.length) {
+			var country_data = data.getValue(selection[0].row, 1);
+			//alert(country_data);
+			console.log(country_data);
+			
+		}
+			  
+		});	// mouseover event
+		
+		
 
+		
 
 		
 
@@ -123,7 +146,7 @@ if(isset($_GET['region']))
     $output= json_decode($geocode);
 	echo $output->results[0]->formatted_address;*/
 
-	include_once 'load-marker.php';
+	//include_once 'load-marker.php';
 }
 else{
 	?>
