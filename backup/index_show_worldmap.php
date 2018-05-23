@@ -24,18 +24,19 @@
        data.addColumn({type:'string', role:'tooltip'});var ivalue = new Array();
       
        var options = {
+       backgroundColor: {fill:'#FFFFFF',stroke:'#FFFFFF' ,strokeWidth:25 },
        colorAxis:  {minValue: 0, maxValue: 0,  colors: []},
        legend: 'none',    
        backgroundColor: {fill:'#FFFFFF',stroke:'#FFFFFF' ,strokeWidth:25 },   
        datalessRegionColor: '#ffc801',
-       displayMode: 'world', 
+       //displayMode: 'regions', 
        enableRegionInteractivity: 'true', 
-       resolution: 'provinces',
+       //resolution: 'country',
        sizeAxis: {minValue: 1, maxValue:1,minSize:10,  maxSize: 10},
-       region:'IN',
+       //region:'IN',
        keepAspectRatio: true,
-       width:600,
-       height:400,
+       width:1200,
+       height:800,
        tooltip: {textStyle: {color: '#444444'}, trigger:'focus', isHtml: false}   
        };
         var chart = new google.visualization.GeoChart(document.getElementById('visualization')); 
@@ -44,7 +45,6 @@
         if (selection.length == 1) {
         var selectedRow = selection[0].row;
         var selectedRegion = data.getValue(selectedRow, 0);
-		console.log(selectedRow + selectedRegion);
         if(ivalue[selectedRegion] != '') { document.location = ivalue[selectedRegion];  }
         }
         });

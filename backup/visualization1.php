@@ -1,5 +1,13 @@
 <html>
   <head>
+  <!--style xmlns="http://www.w3.org/2000/svg">
+    #regions_div path:hover { fill: #877e9f; }
+    #regions_div rect:hover {fill:transparent;}
+</style-->
+  <style>
+#regions_div path:hover { fill: #877e9f; stroke: black; stroke-width: 0.5; }
+#regions_div rect:hover { fill: transparent;}
+  </style>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       var map;
@@ -27,6 +35,7 @@
 		['142', 'Middle East and India'],
 		['150', 'Europe'],
 		['019', 'Americas'],
+		['060', 'North America'],
 		['009', 'Asia Pacific'],
 		['002', 'Africa'],
 		/*['142', 'Middle East and India'],
@@ -54,20 +63,25 @@
 
         //var options = {};
 		var options = {
-					region: 'world', // e.g. IN , AU, RU
+					//region: 'world', // e.g. IN , AU, RU
 					//displayMode: 'text',
-					//'dataMode' : 'regions',	//'markers';
-					'colors' : '#f8bbd0',
+					//'dataMode' : 'regions',	//'markers', 'text';
+					//'colors' : '#f5f5f5',
 					//'showLegend' : 'true',
-					
 					//backgroundColor: '#FFFFFF', //'#d9e8f5',
-					
-					defaultColor: '#f5f5f5',
+					defaultColor: '#37295f',
 					//'dataMode': 'marker',
 					//backgroundColor: {fill:'#FFFFFF',stroke:'#FFFFFF' ,strokeWidth:25 },
 					//backgroundColor: '#FFFFFF', //'#d9e8f5',
 					//datalessRegionColor: '#d9e8f5',	//'#f8bbd0',
 					//colorAxis: {colors: ['#6E90CF', '#3B729F']},
+					//colorAxis: {colors: ['404040', '8f2424']},
+					 //colorAxis:  {minValue: 0, maxValue: 4,  colors: ['red','yellow','green','purple','brown',]},
+					 //legend: 'none',	
+					 //enableRegionInteractivity: 'true', 
+					 //sizeAxis: {minValue: 1, maxValue:1,minSize:10,  maxSize: 10},
+					 //keepAspectRatio: true,
+					 //tooltip: {textStyle: {color: '#444444'}, trigger:'focus'},
 					resolution: 'continents'
 					};
 
@@ -103,19 +117,20 @@
 			var country_data = data.getValue(selection[0].row, 1);
 			//alert(country_data);
 			console.log(country_data);
-			location.href = "?region=" + country_data;
+			location.href = "http://localhost/boks-international/locations?region=" + country_data;
 		}
 		
         });	// click event
 		
 		google.maps.event.addDomListener(container, 'mouseover', function() {
-			  		  var selection = geomap.getSelection();
-		if (selection.length) {
-			var country_data = data.getValue(selection[0].row, 1);
-			//alert(country_data);
-			console.log(country_data);
-			
-		}
+			var selection = geomap.getSelection();
+			if (selection.length) {
+				var country_data = data.getValue(selection[0].row, 1);
+				//alert(country_data);
+				console.log(country_data);
+				
+			}
+			//alert('aaa');
 			  
 		});	// mouseover event
 		
@@ -151,7 +166,7 @@ if(isset($_GET['region']))
 else{
 	?>
 	<!--div id="regions_div" style="width: 900px; height: 500px;"></div-->
-	<div id="regions_div" style="width: 900px; height: 500px;"></div>
+	<div id="regions_div" style="width: 300px; height: 300px;"></div>
 		<script async defer src="https://maps.googleapis.com/maps/api/js?key
 =AIzaSyDgS2pbNfDwDRy1nM3VNIiMBGmcLa-H0EY&libraries=visualization&callback=initMap">
 </script>
