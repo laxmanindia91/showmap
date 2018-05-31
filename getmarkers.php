@@ -11,10 +11,9 @@ $result = mysqli_query($con, $sql);
          if (mysqli_num_rows($result) > 0) {
 			 $i = 0;
             while($row = mysqli_fetch_assoc($result)) {
-				$lattitude = $row['lattitude'];
-				$longitude = $row['longitude'];
-			   array_push($listings,[$lattitude,$longitude]);//$longitude
-
+				//while ($obj=mysqli_fetch_object($result)) {
+			   $listings[] = array('lat' => $row['lattitude'], 'lng' => $row['longitude']);
+			   //array_push($listings, $obj);
             }
          } else {
             echo "0 results";
